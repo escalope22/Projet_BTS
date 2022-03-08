@@ -1,25 +1,23 @@
-<?php include ("header.php");?>
+<?php include("header.php");
+include_once "config.php";
+$pdo = new PDO("mysql:host=" . Config::SERVEUR . ";dbname=" . Config::BDD, Config::UTILISATEUR, Config::MOTDEPASSE);
+
+$requete = $pdo->prepare("select * from plages");
+$requete->execute();
+$plages = $requete->fetchAll();
+?>
+
 <section>
     <div class="container">
-
-    <h1>Ajouter une plage</h1>
-    <form action="">
-
-        <div class="form-group">
-            <label for="nom">Le nom de la plage</label>
-            <input class="form-control" type="text" name="nom" placeholder="Plage">
-        </div>
-
-        <div class="form-group">
-            <label for="">Département</label>
-            <input class="form-control" type="text" name="" placeholder="Département">
-        </div>
-
-        <br>
-        <button class="btn btn-primary" type="submit">envoyer</button>
-
-    </form>
+        <h1>Plages</h1>
+        <select id="">
+            <option value=""></option>
+            <?php foreach ($plages as $p){?>
+            <option value=""><?php echo $p['nom_plage'] ?></option>
+            <?php } ?>
+        </select>
+        <a href="plages.php" class="btn btn-primary">Allez</a>
     </div>
-
 </section>
-<?php include ("footer.php");?>
+
+<?php include("footer.php"); ?>

@@ -10,4 +10,7 @@
     <script src="https://kit.fontawesome.com/da7397688c.js" crossorigin="anonymous"></script>
     <title>qqch</title>
 </head>
+<header>
+    <div style="height: 6rem; display: flex; background-color: blanchedalmond; align-items: center">Header</div>
+</header>
 <body>
